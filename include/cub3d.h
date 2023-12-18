@@ -6,7 +6,7 @@
 /*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/18 18:27:51 by lduthill         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:31:36 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ typedef struct s_vars
 	int		height;
 	int		width;
 }				t_vars;
+
+
+/* main.c */
+void	ft_init_mlx(t_vars data);
 
 #endif
