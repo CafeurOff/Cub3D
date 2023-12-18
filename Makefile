@@ -3,7 +3,7 @@
 # Compile informations
 NAME	=	cub3D
 FLAGS	=	-Wall -Wextra -Werror -g
-MLX_INCLUDE =	-Lmlx -L/usr/lib/ -lXext -lX11 -lm -I ./ -I ../include/mlx/
+MLX_INCLUDE =	-Lmlx/ -lmlx -L/usr/lib/ -lXext -lX11 -lm -I ./ -I ./mlx/
 
 #All sources files to compile
 SRC = src/
@@ -11,7 +11,6 @@ SRC_FILES	=	$(wildcard $(SRC)/*.c)
 OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES:.c=.o))
 
 #Minilibx files
-MLX_SRC = ./include/mlx/
 
 #Some colors
 GREEN	=	\033[0;32m
@@ -34,7 +33,6 @@ $(NAME):	$(OBJS)
 	@printf "| |____ | |_| || |_) | ___) || |__| |\n"
 	@printf "                                                  \n"
 	@echo "$(ORANGE) Compiling minishell$(RED)...$(DEFAULT)"
-	@make -C $(MLX_SRC) --no-print-directory -s
 	@gcc $(FLAGS) $(OBJS) $(MLX_INCLUDE) -o $(NAME)
 	@echo "$(GREEN) $(NAME) is ready$(DEFAULT)"
 
@@ -42,7 +40,6 @@ all:	$(NAME)
 
 clean:
 	@echo "$(RED) Cleaning..$(NAME)$(DEFAULT)"
-	@make clean -C $(MLX_SRC) --no-print-directory -s
 	@rm -rf $(OBJS)
 
 fclean:		clean
@@ -50,7 +47,6 @@ fclean:		clean
 	@echo " $(RED)$(NAME) is cleaned$(DEFAULT)"
 
 re:		fclean all
-		@make re -C $(MLX_SRC) --no-print-directory -s
 		@echo "$(ORANGE) $(NAME) recompiled successfully$(DEFAULT)"
 
 norm:

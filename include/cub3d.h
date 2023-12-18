@@ -6,7 +6,7 @@
 /*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/15 15:38:02 by lduthill         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:27:51 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
-# include "./mlx/mlx.h"
+# include "../mlx/mlx.h"
 
 typedef struct s_vars
 {
