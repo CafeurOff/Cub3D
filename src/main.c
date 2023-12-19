@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:40:57 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/18 18:31:53 by lduthill         ###   ########.fr       */
+/*   Updated: 2023/12/19 03:11:45 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int		main(int ac, char **av)
 
 	(void)av;
 	(void)ac;
-	ft_check_args(ac, av);
+	if (ft_check_args(ac, av) == 0)
+		return (0);
+	if (check_if_cube(av[1]) == 0)
+		return (0);
 	ft_init_mlx(data);
+	return (0);
 }

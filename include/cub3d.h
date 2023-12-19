@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/18 18:31:36 by lduthill         ###   ########.fr       */
+/*   Updated: 2023/12/19 03:11:27 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ typedef struct s_vars
 
 /* main.c */
 void	ft_init_mlx(t_vars data);
+
+/* check.c */
+int	ft_check_args(int ac, char **av);
+int	check_if_cube(char *str);
 
 #endif
