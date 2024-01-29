@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/19 03:11:27 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:19:23 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,215 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
-# include "../mlx/mlx.h"
+#include <math.h>
+# include <stdbool.h>
+# include "../MLX42/include/MLX42/MLX42.h"
+# include "../libs/get_next_line/get_next_line.h"
+# include <stdint.h>
 
-typedef struct s_vars
+# ifndef SKY
+#  define SKY 0
+# endif
+# ifndef FLOOR
+#  define FLOOR 0
+# endif
+# ifndef BONUS
+#  define BONUS 0
+# endif
+
+typedef struct s_cast
 {
-	void	*mlx;
-	void	*win;
-	int		height;
-	int		width;
-}				t_vars;
+	double		pd_x;
+	double		pd_y;
+	double		pd_x_strafe;
+	double		pd_y_strafe;
+	double		pa;
+	double		ca;
+	int			line_hight;
+	int			line_offset;
+	int			x_off;
+	int			y_off;
+	int			x_off_strafe;
+	int			y_off_strafe;
+	int			map_x;
+	int			map_y;
+	int			map_p;
+	char		**map;
+}				t_cast;
+
+typedef struct s_ray
+{
+	int		rays;
+	int		n_of_rays;
+	int		depoffield;
+	double	ray_x;
+	double	ray_y;
+	double	ray_a;
+	double	x_o;
+	double	y_o;
+	double	dist_h;
+	double	dist_v;
+	double	ver_x;
+	double	ver_y;
+	double	hor_x;
+	double	hor_y;
+	double	final_d;
+	double	a_tan;
+	double	n_tan;
+	double	shade;
+	double	tex_x;
+	double	tex_y;
+	double	ty_step;
+	double	ty_off;
+}	t_ray;
+
+typedef struct draw_line
+{
+	double		tx;
+	double		ty;
+	double		dy;
+	double		fix_ra;
+	int			delta_x;
+	int			delta_y;
+	int			direction_x;
+	int			direction_y;
+	int			error;
+	int			two_times_error;
+	int			pixel;
+	int			begin_x;
+	int			begin_y;
+	int			end_x;
+	int			end_y;
+	int			color;
+	int			x_off;
+}	t_draw_line;
+
+typedef struct s_textures
+{
+	mlx_texture_t	*wall_no;
+	mlx_texture_t	*wall_so;
+	mlx_texture_t	*wall_we;
+	mlx_texture_t	*wall_ea;
+	mlx_texture_t	*door;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*ceiling;
+	mlx_texture_t	*coll;
+	mlx_texture_t	*water;
+	mlx_texture_t	*chest;
+} t_textures;
+
+typedef struct s_game
+{
+	mlx_t			*mlx;
+	mlx_image_t		*line;
+	mlx_image_t		*minimap;
+	mlx_image_t		*background;
+	mlx_image_t		*floor;
+	mlx_image_t		*ceiling;
+	int				height;
+	int				width;
+	int				dis_w;
+	int				dis_h;
+	double			pl_x;
+	double			pl_y;
+	int				n_of_coll;
+	int				n_of_water;
+	double			drunk;
+	int				game_over;
+	int				backg_fade;
+	t_cast			*cast;
+	t_draw_line		*dl;
+	t_ray			*ray;
+	t_textures		*texture;
+}	t_game;
 
 
-/* main.c */
-void	ft_init_mlx(t_vars data);
+typedef struct s_map
+{
+	int		fd;
+	char	**map;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		floor[3];
+	int		ceiling[3];
+	int		error;
+	int		check;
+	t_game	*game;
+}				t_map;
 
-/* check.c */
-int	ft_check_args(int ac, char **av);
-int	check_if_cube(char *str);
+/* cb_check_file.c */
+int		ft_check_extension(char *str);
+
+/* cb_check_lines.c */
+bool	ft_check_side(char **map, int j);
+bool	ft_check_middle(char **map);
+bool	ft_check_border(char **map);
+bool	ft_check_current(char **map);
+bool	ft_check_next(char **map);
+
+/* cb_check_pos.c */
+bool	ft_check_lines(char **map);
+bool	ft_check_pos(char **map);
+bool	ft_check_letters(char **map);
+char	ft_player_pos(char **map);
+int		ft_check_points(char c, char **map);
+
+/* cb_check_rgb.c */
+int	ft_check_rgb(t_map *map, char *line);
+int	ft_check_rgb_range(char **rgb, char *line, int i, int j);
+int	ft_get_rgb(t_map *map, char *id, char **rgb);
+int	ft_check_floor(t_map *map);
+
+/* cb_check_textures.c */
+int	ft_get_texture(t_map *map, char *line);
+
+/* cb_errors_management.c */
+void	free_tab(char **tab);
+
+/* cb_init.c */
+t_map	*ft_init_struct(char *path);
+void	ft_init_null(t_map *map);
+
+/* cb_line_utils.c */
+char	*ft_trim_space(char *line);
+
+/* cb_map_check.c */
+int	ft_get_map(t_map *map);
+int	ft_check_map(t_map *map, char *line);
+bool	ft_check_cor(char *line, int check);
+char	*ft_check_nl(char *line, int map_fd);
+
+/* cb_set_map.c */
+char	**ft_setmap(int fd);
+char	**ft_set(int fd);
+
+/* cb_utils.c */
+void	*ft_calloc(size_t nitems, size_t size);
+char	*ft_strdup(const char *str1);
+size_t	ft_strlen(const char *str);
+int	ft_strncmp(const char *str1, const char *str2, size_t n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+/* cb_utils2.c */
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strtrim(char const *s1, char const *set);
+
+/* cb_utils3.c */
+bool	ft_isspace(char c);
+int		ft_len_tab(char **tab);
+int		ft_isdigit(int c);
+bool	ft_is_close(char c);
+int		ft_atoi(const char *str);
+
+/* cb_utils4.c */
+char	*ft_strjoin_free(const char *s1, const char *s2);
+bool	ft_is_letters(char c);
+void	ft_bzero(void *dst, size_t n);
+
+/* ft_split.c */
+char	**ft_split(char const *s, char c);
 
 #endif

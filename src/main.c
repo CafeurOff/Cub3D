@@ -5,33 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 14:40:57 by lduthill          #+#    #+#             */
-/*   Updated: 2023/12/19 03:11:45 by lduthill         ###   ########.fr       */
+/*   Created: 2024/01/29 20:33:33 by lduthill          #+#    #+#             */
+/*   Updated: 2024/01/29 22:19:10 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	ft_init_mlx(t_vars data)
+int	main(int ac, char **av)
 {
-	data.width = 64;
-	data.height = 64;
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, data.width * 64,
-			data.height * 64 + 20, "So Long !");
-	mlx_loop(data.mlx);
-}
+	int		check;
+	t_map	*map;
 
-int		main(int ac, char **av)
-{
-	t_vars data;
-
-	(void)av;
-	(void)ac;
-	if (ft_check_args(ac, av) == 0)
-		return (0);
-	if (check_if_cube(av[1]) == 0)
-		return (0);
-	ft_init_mlx(data);
+	if (ac != 2)
+		return (printf("Error\n Too few arguments"), 1);
+	check = ft_check_extension(av[1]);
+	if (check == 0)
+		return (printf("Error\n"), 1);
+	while (1)
+	{
+		map = ft_init_struct(av[1]);
+		if (map->error > 0)
+			return (1);
+		game_init(map);
+		if (map->error > 0)
+			return (ft_terminate_struct(map), 1);
+		if (map->game->game_over != 3)
+		{
+			ft_terminate_struct(map);
+			break ;
+		}
+		ft_terminate_struct(map);
+	}
 	return (0);
 }

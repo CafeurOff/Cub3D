@@ -2,21 +2,25 @@
 
 # Compile informations
 NAME	=	cub3D
-FLAGS	=	-Wall -Wextra -Werror -g
-MLX_INCLUDE =	-Lmlx/ -lmlx -L/usr/lib/ -lXext -lX11 -lm -I ./ -I ./mlx/
+FLAGS	=	-Wall -Wextra -Werror -g -Ofast
+MLXFLAGS = -Iinclude -lglfw -ldl
 
 #All sources files to compile
 SRC = src/
-SRC_FILES	=	$(wildcard $(SRC)/*.c)
-OBJS		=	$(addprefix $(SRC_FOLDER), $(SRC_FILES:.c=.o))
 
-#Minilibx files
+SRC_FILES = $(wildcard $(SRC)/*.c)
+OBJS = $(addprefix $(SRC_FOLDER), $(SRC_FILES:.c=.o))
 
 #Some colors
 GREEN	=	\033[0;32m
 RED		=	\033[0;31m
 DEFAULT	=	\033[0m
 ORANGE =   \033[0;33m
+
+#Libs
+
+GNL_PATH = libs/get_next_line/
+GNL = $(GNL_PATH)libgnl.a
 
 # Rules
 %.o: %.c
@@ -32,18 +36,26 @@ $(NAME):	$(OBJS)
 	@printf "| |____ | |_| || |_) | ___) || |__| |\n"
 	@printf "| |____ | |_| || |_) | ___) || |__| |\n"
 	@printf "                                                  \n"
-	@echo "$(ORANGE) Compiling minishell$(RED)...$(DEFAULT)"
-	@gcc $(FLAGS) $(OBJS) $(MLX_INCLUDE) -o $(NAME)
+	@make -C $(GNL_PATH) --no-print-directory -s
+	@echo "$(ORANGE) Compiling Cub3D$(RED)...$(DEFAULT)"
+	@gcc $(FLAGS) $(MLX_INCLUDE) -o $(NAME) $(OBJS) ./libs/get_next_line/libgnl.a ./MLX42/build/libmlx42.a $(MLXFLAGS) -lm
 	@echo "$(GREEN) $(NAME) is ready$(DEFAULT)"
 
-all:	$(NAME)
+all:	MLX42 $(NAME)
+
+MLX42:
+	@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
+	@cd MLX42 && cmake -B build && cmake --build build -j4
 
 clean:
 	@echo "$(RED) Cleaning..$(NAME)$(DEFAULT)"
+	@make -C $(GNL_PATH) clean --no-print-directory -s
 	@rm -rf $(OBJS)
+	@rm -rf MLX42
 
 fclean:		clean
 	@rm -f $(NAME)
+	@make -C $(GNL_PATH) fclean --no-print-directory -s
 	@echo " $(RED)$(NAME) is cleaned$(DEFAULT)"
 
 re:		fclean all
