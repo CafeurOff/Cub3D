@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:33:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:19:10 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:34:15 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	main(int ac, char **av)
 	{
 		map = ft_init_struct(av[1]);
 		if (map->error > 0)
-			return (1);
-		game_init(map);
+			return (ft_endgame(map), 1);
+		ft_game(map);
 		if (map->error > 0)
-			return (ft_terminate_struct(map), 1);
+			return (ft_endgame(map), 1);
 		if (map->game->game_over != 3)
 		{
-			ft_terminate_struct(map);
+			ft_endgame(map);
 			break ;
 		}
-		ft_terminate_struct(map);
+		ft_endgame(map);
 	}
 	return (0);
 }

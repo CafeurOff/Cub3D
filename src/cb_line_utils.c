@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:36:43 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:14:11 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:29:05 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,20 @@ char	*ft_trim_space(char *line)
 			trim[j++] = line[i];
 	}
 	return (trim);
+}
+
+void	ft_init_null(t_map *map)
+{
+	int	i;
+
+	i = -1;
+	map->no = NULL;
+	map->so = NULL;
+	map->we = NULL;
+	map->ea = NULL;
+	while (++i < 3)
+	{
+		map->floor[i] = -1;
+		map->ceiling[i] = -1;
+	}
 }
