@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:57:25 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:29:21 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 05:00:27 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,12 @@
 
 void	ft_hooks(void *key)
 {
-	int		diff;
 	t_game	*game;
 
-	diff = 0;
 	game = key;
 	ft_on_exit(game);
 	if (game->game_over == 0)
-	{
-		ft_move_left(game, diff);
-		ft_move_right(game, diff);
-		ft_mouvement(game);
 		ft_raycaster(game);
-	}
 }
 
 void	ft_on_exit(t_game *game)

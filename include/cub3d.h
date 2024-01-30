@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:33:49 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 05:02:43 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,13 +216,6 @@ char	*ft_check_nl(char *line, int map_fd);
 void	ft_offset(t_game *game);
 void	ft_straf(t_game *game);
 bool	ft_check_collision(char c);
-
-/* cb_move.c */
-void	ft_mouvement(t_game *game);
-void	ft_move_left(t_game *game, int diff);
-void	ft_move_right(t_game *game, int diff);
-void	ft_move_up(t_game *game);
-void	ft_w_move(t_game *game);
 
 /* cb_raycast.c */
 void	ft_raycaster(t_game *game);
