@@ -1,7 +1,7 @@
 
 EA ./textures/wooden_wall_no_window.png
-NO ./textures/wooden_wall.png
-SO ./textures/wooden_wall.png
+NO ./textures/wooden_wall_no_window.png
+SO ./textures/wooden_wall_no_window.png
 WE ./textures/wooden_wall_no_window.png
 
 C 147,27,228

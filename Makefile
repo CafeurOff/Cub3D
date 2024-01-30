@@ -48,17 +48,13 @@ $(NAME):	$(OBJS)
 	@gcc $(FLAGS) $(MLX_INCLUDE) -o $(NAME) $(OBJS) ./libs/get_next_line/libgnl.a ./MLX42/build/libmlx42.a $(MLXFLAGS) -lm
 	@echo "$(GREEN) $(NAME) is ready$(DEFAULT)"
 
-all:	MLX42	$(NAME)
+all:	$(NAME)
 
-MLX42:
-	@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
-	@cd MLX42 && cmake -B build && cmake --build build -j4
 
 clean:
 	@echo "$(RED) Cleaning..$(NAME)$(DEFAULT)"
 	@make -C $(GNL_PATH) clean --no-print-directory -s
 	@rm -rf $(OBJS)
-	@rm -rf MLX42
 
 fclean:		clean
 	@rm -f $(NAME)
