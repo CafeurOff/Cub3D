@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:22:32 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:29:36 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:27:47 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 t_map	*ft_init_struct(char *path)
 {
@@ -41,8 +41,6 @@ void	ft_malloc_game(t_map *map)
 	map->game->cast = ft_init_cast(map);
 	map->game->dl = ft_line_init();
 	map->game->ray = ft_raycast_init();
-	map->game->n_of_coll = ft_check_points('2', map->map);
-	map->game->n_of_water = ft_check_points('3', map->map);
 	map->game->texture = malloc(sizeof(t_textures));
 }
 

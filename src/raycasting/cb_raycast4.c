@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:22:00 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:40:16 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:18:16 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_set_cos(t_game *game)
 {
@@ -61,29 +61,11 @@ void	ft_draw_walls(t_game *game)
 		game->dl->pixel = ((int)game->dl->ty * game->texture->wall_no->width
 				+ (int)game->dl->tx)
 			* game->texture->wall_no->bytes_per_pixel;
-		game->dl->color = ft_wall_color(game);
+		game->dl->color = 1986467071; // MAKE TEXTURE COLOR
 		j = -1;
 		while (++j < 4)
 			mlx_put_pixel(game->line, j + game->dl->begin_x,
 				i + game->cast->line_offset, game->dl->color);
 		game->dl->ty += game->ray->ty_step;
 	}
-}
-
-uint32_t	ft_wall_color(t_game *game)
-{
-	uint32_t	color;
-
-	color = 0;
-	if (game->cast->map[(int)game->ray->ray_y / 128]
-		[(int)game->ray->ray_x / 128] == 'D')
-		color = (int)(game->texture->door->pixels[game->dl->pixel]) << 24
-			| (int)(game->texture->door->pixels[game->dl->pixel + 1]) << 16
-			| (int)(game->texture->door->pixels[game->dl->pixel + 2]) << 8
-			| (int)(game->texture->door->pixels[game->dl->pixel + 3]);
-	else if (game->ray->shade == 0.5)
-		color = ft_ea_color(game);
-	else
-		color = ft_no_color(game);
-	return (color);
 }

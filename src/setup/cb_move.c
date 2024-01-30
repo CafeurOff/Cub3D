@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:59:40 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:07:50 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:59:02 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_mouvement(t_game *game)
 {

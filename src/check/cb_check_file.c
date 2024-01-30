@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:04 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:02:54 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:57:21 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 int	ft_check_extension(char *str)
 {

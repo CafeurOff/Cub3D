@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:48:52 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:09:10 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:23:10 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 bool	ft_check_lines(char **map)
 {
@@ -36,8 +36,6 @@ bool	ft_check_pos(char **map)
 		return (printf("Invalid map component found\n"), false);
 	if (ft_player_pos(map) == 'F')
 		return (printf("Invalid player position\n"), false);
-	if (ft_check_points('4', map) != 1)
-		return (printf("Invalid finish\n"), false);
 	return (true);
 }
 

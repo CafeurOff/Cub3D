@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:49 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:46:09 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:32:08 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	free_tab(char **tab)
 {
@@ -48,10 +48,6 @@ void	ft_free_struct(t_map *map)
 {
 	if (map->error == 0)
 	{
-		if (SKY == 1)
-			mlx_delete_texture(map->game->texture->ceiling);
-		if (FLOOR == 1)
-			mlx_delete_texture(map->game->texture->floor);
 		mlx_delete_texture(map->game->texture->wall_no);
 		mlx_delete_texture(map->game->texture->wall_so);
 		mlx_delete_texture(map->game->texture->wall_ea);
@@ -86,14 +82,4 @@ void	ft_destroy_img(t_game *game, int i)
 		mlx_delete_texture(game->texture->wall_we);
 		mlx_delete_texture(game->texture->wall_ea);
 	}
-}
-
-void	ft_destroy_add(t_game *g, int i)
-{
-	if (i >= 1 && FLOOR == 1)
-		mlx_delete_texture(g->texture->floor);
-	if (i >= 2 && SKY == 1)
-		mlx_delete_texture(g->texture->ceiling);
-	if (i >= 3)
-		mlx_delete_texture(g->texture->door);
 }

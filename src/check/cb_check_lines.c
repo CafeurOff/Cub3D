@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:50:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 21:54:21 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:57:23 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 bool	ft_check_side(char **map, int j)
 {

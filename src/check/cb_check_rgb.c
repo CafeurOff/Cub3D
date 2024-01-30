@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:35:35 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:15:25 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:57:28 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 int	ft_check_rgb(t_map *map, char *line)
 {

@@ -6,36 +6,25 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:57:25 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:09:52 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:29:21 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_hooks(void *key)
 {
-	int		x;
-	int		y;
 	int		diff;
 	t_game	*game;
 
-	x = 0;
-	y = 0;
 	diff = 0;
 	game = key;
 	ft_on_exit(game);
 	if (game->game_over == 0)
 	{
-		if (BONUS == 1)
-		{
-			mlx_get_mouse_pos(game->mlx, &x, &y);
-			diff = game->dis_w / 2 - x;
-			mlx_set_mouse_pos(game->mlx, game->dis_w / 2, game->dis_h / 2);
-		}
 		ft_move_left(game, diff);
 		ft_move_right(game, diff);
 		ft_mouvement(game);
-		//ft_check_door(game); // LORENZO ICI POTO
 		ft_raycaster(game);
 	}
 }

@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:10:03 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:33:50 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:24:47 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_raycaster(t_game *game)
 {
@@ -18,8 +18,6 @@ void	ft_raycaster(t_game *game)
 	game->ray->ray_a = game->cast->pa - 0.0174533 * 30;
 	ft_set_value(game);
 	ft_replace_texture(game);
-	//if (SKY == 1)
-		//draw_sky(g); // LORENZO ICI POTO
 	while (++game->ray->rays < game->ray->n_of_rays)
 	{
 		ft_line_honrizontal(game);
@@ -61,8 +59,6 @@ void	ft_set_ray_val(t_game *game)
 	ft_set_cos(game);
 	ft_set_render(game);
 	ft_draw_walls(game);
-	//if (FLOOR == 1)
-		//ft_set_values_floor_ceiling(game); // LORENZO ICI POTO
 	game->ray->ray_a += 0.0174533 / 8;
 	ft_set_value(game);
 }

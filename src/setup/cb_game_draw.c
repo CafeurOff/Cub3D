@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:43:27 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:41:44 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:25:27 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 int	ft_draw_map(t_game *game, t_map *map)
 {
@@ -32,8 +32,6 @@ int	ft_draw_map(t_game *game, t_map *map)
 			printf("Error\n'EA' Texture not loading\n"), 3);
 	if (ft_get_texture_size(game) == false)
 		printf("Warning!\nTexture size too big\n");
-	if (ft_get_add_tex(game) == 3) // LORENZO ICI POTO
-		return (3);
 	return (0);
 }
 

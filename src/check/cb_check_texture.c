@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:32:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:18:46 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:57:29 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 int	ft_get_texture(t_map *map, char *line)
 {

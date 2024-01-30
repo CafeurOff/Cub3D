@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:13:25 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:19:59 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:56:02 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_set_honrizontal_val(t_game *game)
 {

@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:20:51 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 21:28:28 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:00:23 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	*ft_calloc(size_t nitems, size_t size)
 {

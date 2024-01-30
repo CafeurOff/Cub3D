@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:37:29 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 21:54:30 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:00:29 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 bool	ft_isspace(char c)
 {

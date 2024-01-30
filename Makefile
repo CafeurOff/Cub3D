@@ -7,8 +7,15 @@ MLXFLAGS = -Iinclude -lglfw -ldl
 
 #All sources files to compile
 SRC = src/
-
-SRC_FILES = $(wildcard $(SRC)/*.c)
+SRC_RAYCASTING = src/raycasting/
+SRC_CHECK = src/check/
+SRC_SETUP = src/setup/
+SRC_UTILS = src/utils/
+SRC_FILES = $(wildcard $(SRC)/*.c) \
+			$(wildcard $(SRC_RAYCASTING)/*.c) \
+			$(wildcard $(SRC_CHECK)/*.c) \
+			$(wildcard $(SRC_SETUP)/*.c) \
+			$(wildcard $(SRC_UTILS)/*.c)
 OBJS = $(addprefix $(SRC_FOLDER), $(SRC_FILES:.c=.o))
 
 #Some colors
@@ -41,7 +48,7 @@ $(NAME):	$(OBJS)
 	@gcc $(FLAGS) $(MLX_INCLUDE) -o $(NAME) $(OBJS) ./libs/get_next_line/libgnl.a ./MLX42/build/libmlx42.a $(MLXFLAGS) -lm
 	@echo "$(GREEN) $(NAME) is ready$(DEFAULT)"
 
-all:	MLX42 $(NAME)
+all:	MLX42	$(NAME)
 
 MLX42:
 	@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi

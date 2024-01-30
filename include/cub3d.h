@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:47:54 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:33:49 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,10 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
-#include <math.h>
 # include <stdbool.h>
+# include <stdint.h>
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libs/get_next_line/get_next_line.h"
-# include <stdint.h>
-
-# ifndef SKY
-#  define SKY 0
-# endif
-# ifndef FLOOR
-#  define FLOOR 0
-# endif
-# ifndef BONUS
-#  define BONUS 1
-# endif
 
 typedef struct s_cast
 {
@@ -107,12 +96,8 @@ typedef struct s_textures
 	mlx_texture_t	*wall_so;
 	mlx_texture_t	*wall_we;
 	mlx_texture_t	*wall_ea;
-	mlx_texture_t	*door;
 	mlx_texture_t	*floor;
 	mlx_texture_t	*ceiling;
-	mlx_texture_t	*coll;
-	mlx_texture_t	*water;
-	mlx_texture_t	*chest;
 } t_textures;
 
 typedef struct s_game
@@ -205,13 +190,10 @@ void	ft_beggin(t_game *game, t_map *map);
 void	ft_get_draw_texture(t_game *game, t_map *map);
 void	ft_draw_ceiling(t_game *game, t_map *map);
 void	ft_draw_floor(t_game *game, t_map *map);
-int		ft_get_add_tex(t_game *game);
 
 /* cb_texture_utils.c */
 uint32_t	ft_rgb_hex(int r, int g, int b);
 void	ft_set_pixel(mlx_image_t *img, int max_x, int max_y, u_int32_t c);
-uint32_t	ft_ea_color(t_game *game);
-uint32_t	ft_no_color(t_game *game);
 
 /* cb_init.c */
 t_map	*ft_init_struct(char *path);
@@ -264,7 +246,6 @@ void	ft_check_distance(t_game *game);
 void	ft_set_cos(t_game *game);
 void	ft_set_render(t_game *game);
 void	ft_draw_walls(t_game *game);
-uint32_t	ft_wall_color(t_game *game);
 
 /* cb_set_map.c */
 char	**ft_setmap(int fd);

@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:36:43 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:29:05 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:00:14 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 char	*ft_trim_space(char *line)
 {

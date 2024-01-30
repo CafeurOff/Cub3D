@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:34:26 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:56:00 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:27:10 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 void	ft_game(t_map *map)
 {
@@ -39,7 +39,7 @@ int	ft_get_longuest(char **map)
 
 void	ft_beggin(t_game *game, t_map *map)
 {
-	game->mlx = mlx_init(game->dis_w, game->dis_h, "Super Cub3D", true);
+	game->mlx = mlx_init(game->dis_w, game->dis_h, "Cobe3d", true);
 	ft_get_draw_texture(game, map);
 	map->error = ft_draw_map(game, map);
 	if (map->error > 0)

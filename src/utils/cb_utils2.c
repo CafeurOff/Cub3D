@@ -6,11 +6,11 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:28:39 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 21:29:49 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:00:27 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../../include/cub3d.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
