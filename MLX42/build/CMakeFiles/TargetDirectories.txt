@@ -1,7 +1,0 @@
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/install/strip.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/install.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/list_install_components.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/rebuild_cache.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/edit_cache.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/install/local.dir
-/home/lduthill/42/CURSUS/Cub3D/MLX42/build/CMakeFiles/mlx42.dir
