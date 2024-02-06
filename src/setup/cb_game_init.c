@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_game_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfroidev <sfroidev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:34:26 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/05 15:32:42 by sfroidev         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:59:56 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	ft_beggin(t_game *game, t_map *map)
 	game->win = mlx_new_window(game->mlx, game->dis_w, game->dis_h, "Cobe3D");
 	ft_get_draw_texture(game, map);
 	map->error = ft_draw_map(game, map);
-	//if (map->error > 0)
-	//	return (mlx_terminate(game->mlx));
+	if (map->error > 0)
+		return (ft_free_texture(map));
 	//mlx_hook(game->win, 2, 1, ft_controls, game);
-	//mlx_hook(game->win, 17, 1, ft_close_game, game);
+	//mlx_hook(game->win, 17, 1, ft_exit, game);
 	mlx_loop_hook(game->mlx, ft_hooks, map);
 	mlx_loop(game->mlx);
 	//mlx_terminate(game->mlx);

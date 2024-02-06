@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_errors_management.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfroidev <sfroidev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:49 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/05 15:15:19 by sfroidev         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:50:00 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,34 @@ void	ft_destroy_img(t_game *game, int i)
 		mlx_destroy_image(game->mlx, game->texture->wall_we->mlx_img);
 	if (i >= 4)
 		mlx_destroy_image(game->mlx, game->texture->wall_ea->mlx_img);
+}
+
+void	ft_free_texture(t_map *map)
+{
+	mlx_destroy_window(map->game->mlx, map->game->win);
+	mlx_destroy_image(map->game->mlx, map->game->texture->background->mlx_img);
+	mlx_destroy_display(map->game->mlx);
+	free(map->game->texture->wall_no);
+	free(map->game->texture->wall_so);
+	free(map->game->texture->wall_we);
+	free(map->game->texture->wall_ea);
+	free(map->game->texture->background);
+	free(map->game->mlx);
+	ft_endgame(map);
+	exit(0);
+}
+
+int	ft_exit(t_map *map)
+{
+	mlx_destroy_window(map->game->mlx, map->game->win);
+	mlx_destroy_image(map->game->mlx, map->game->texture->background->mlx_img);
+	mlx_destroy_display(map->game->mlx);
+	free(map->game->texture->wall_no);
+	free(map->game->texture->wall_so);
+	free(map->game->texture->wall_we);
+	free(map->game->texture->wall_ea);
+	free(map->game->texture->background);
+	free(map->game->mlx);
+	ft_endgame(map);
+	exit(0);
 }

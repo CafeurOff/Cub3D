@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfroidev <sfroidev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/05 15:02:36 by sfroidev         ###   ########.fr       */
+/*   Updated: 2024/02/06 00:50:06 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,8 @@ void	ft_endgame(t_map *map);
 void	ft_free_struct(t_map *map);
 void	ft_destroy_img(t_game *game, int i);
 void	ft_destroy_add(t_game *g, int i);
+void	ft_free_texture(t_map *map);
+int	ft_exit(t_map *map);
 
 /* cb_game_draw.c */
 int		ft_draw_map(t_game *game, t_map *map);
