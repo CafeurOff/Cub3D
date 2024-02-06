@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:22:00 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 00:55:31 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/06 21:56:15 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_draw_walls(t_game *game)
 		game->dl->pixel = ((int)game->dl->ty * game->texture->wall_no->x
 				+ (int)game->dl->tx)
 			* game->texture->wall_no->bpp;
-		game->dl->color = 1982460071; // MAKE TEXTURE COLOR
+		game->dl->color = 1545484152; // MAKE TEXTURE COLOR
 		j = -1;
 		while (++j < 4)
 			mlx_put_pixel(game->texture->background, j + game->dl->begin_x,

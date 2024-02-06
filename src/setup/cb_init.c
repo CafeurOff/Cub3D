@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfroidev <sfroidev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:22:32 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/05 15:01:02 by sfroidev         ###   ########.fr       */
+/*   Updated: 2024/02/06 21:58:20 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_map	*ft_init_struct(char *path)
 void	ft_malloc_game(t_map *map)
 {
 	map->game = malloc(sizeof(t_game));
-	map->game->game_over = 0;
 	map->game->cast = ft_init_cast(map);
 	map->game->dl = ft_line_init();
 	map->game->ray = ft_raycast_init();
