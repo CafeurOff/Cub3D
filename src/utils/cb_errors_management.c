@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_errors_management.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:49 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 00:50:00 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:01:16 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,35 @@ void	ft_free_texture(t_map *map)
 
 int	ft_exit(t_map *map)
 {
+	ft_destroy_img(map->game, 4);
 	mlx_destroy_window(map->game->mlx, map->game->win);
 	mlx_destroy_image(map->game->mlx, map->game->texture->background->mlx_img);
 	mlx_destroy_display(map->game->mlx);
+	free(map->game->mlx);
+	if (map->no)
+		free(map->no);
+	if (map->ea)
+		free(map->ea);
+	if (map->we)
+		free(map->we);
+	if (map->so)
+		free(map->so);
+	if (map->error != 2)
+		close(map->fd);
+	if (map->map != NULL)
+	{
+		free_tab(map->map);
+		free(map->game->ray);
+		free(map->game->cast);
+		free(map->game->dl);
+	}
 	free(map->game->texture->wall_no);
 	free(map->game->texture->wall_so);
 	free(map->game->texture->wall_we);
 	free(map->game->texture->wall_ea);
 	free(map->game->texture->background);
-	free(map->game->mlx);
-	ft_endgame(map);
+	free(map->game->texture);
+	free(map->game);
+	free(map);
 	exit(0);
 }

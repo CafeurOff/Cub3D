@@ -30,11 +30,6 @@ int	main(int ac, char **av)
 		ft_game(map);
 		if (map->error > 0)
 			return (ft_endgame(map), 1);
-		if (map->game->game_over != 3)
-		{
-			ft_endgame(map);
-			break ;
-		}
 		ft_endgame(map);
 	}
 	return (0);
