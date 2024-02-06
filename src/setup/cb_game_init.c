@@ -47,6 +47,6 @@ void	ft_beggin(t_game *game, t_map *map)
 		return (ft_free_texture(map));
 	mlx_loop_hook(game->mlx, ft_hooks, map);
 	mlx_hook(game->win, 17, 1, ft_exit, map);
-	//mlx_hook(game->win, 2, 1, ft_controls, game);
+	mlx_hook(game->win, 2, 1, ft_controls, map);
 	mlx_loop(game->mlx);
 }

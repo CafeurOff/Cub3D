@@ -28,9 +28,6 @@ int	main(int ac, char **av)
 		if (map->error > 0)
 			return (ft_endgame(map), 1);
 		ft_game(map);
-		if (map->error > 0)
-			return (ft_endgame(map), 1);
-		ft_endgame(map);
 	}
 	return (0);
 }

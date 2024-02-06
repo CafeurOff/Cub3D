@@ -20,6 +20,8 @@
 # include <math.h>
 # include <stdbool.h>
 # include <stdint.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include "../mlx/mlx.h"
 # include "../libs/get_next_line/get_next_line.h"
 # define HEIGHT 900
@@ -221,7 +223,6 @@ char	*ft_check_nl(char *line, int map_fd);
 
 /* cb_move_utils.c */
 void	ft_offset(t_game *game);
-void	ft_straf(t_game *game);
 bool	ft_check_collision(char c);
 
 /* cb_raycast.c */
@@ -277,8 +278,10 @@ void	ft_bzero(void *dst, size_t n);
 
 /* ft_hooks */
 int	ft_hooks(t_map *map);
-void	ft_on_exit(t_game *game);
-
+int	ft_controls(int key, t_map *map);
+void	ft_camera_move(t_game *game, int key);
+void	ft_move_front_back(t_game *game, int key);
+void	ft_move_vertical(t_game *game, int key);
 /* ft_split.c */
 char	**ft_split(char const *s, char c);
 
