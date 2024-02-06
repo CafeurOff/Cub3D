@@ -148,7 +148,7 @@ typedef struct s_map
 }				t_map;
 
 /* cb_check_file.c */
-int		ft_check_extension(char *str);
+int	ft_check_extension(char *str);	
 
 /* cb_check_lines.c */
 bool	ft_check_side(char **map, int j);
@@ -284,5 +284,7 @@ void	ft_move_front_back(t_game *game, int key);
 void	ft_move_vertical(t_game *game, int key);
 /* ft_split.c */
 char	**ft_split(char const *s, char c);
+
+
 
 #endif

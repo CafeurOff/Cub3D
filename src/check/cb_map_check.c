@@ -25,7 +25,7 @@ int	ft_get_map(t_map *map)
 	while (line != NULL)
 	{
 		if (ft_check_map(map, line) == 1)
-			return (free(line), 1);
+			return (get_next_line(-100), free(line), 1);
 		free(line);
 		if (map->ea && map->no
 			&& map->so && map->we

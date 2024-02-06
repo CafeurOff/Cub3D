@@ -19,19 +19,26 @@ int	ft_get_texture(t_map *map, char *line)
 
 	i = 0;
 	j = 0;
+	while (line[i])
+	{
+		if (line[i] == '\t')
+			return(printf("Error\nTab is not allowed..\n"), 1);
+		i++;
+	}
+	i = 0;
 	while (line[i] != ' ')
 		i++;
 	while (line[i] == ' ')
 		i++;
 	while (line[i + j])
 		j++;
-	if (ft_strncmp(line, "NO", 2) == 0 && !map->no)
+	if (ft_strncmp(line, "NO ", 3) == 0 && !map->no)
 		map->no = ft_substr(line, i, j - 1);
-	else if (ft_strncmp(line, "SO", 2) == 0 && !map->so)
+	else if (ft_strncmp(line, "SO ", 3) == 0 && !map->so)
 		map->so = ft_substr(line, i, j - 1);
-	else if (ft_strncmp(line, "WE", 2) == 0 && !map->we)
+	else if (ft_strncmp(line, "WE ", 3) == 0 && !map->we)
 		map->we = ft_substr(line, i, j - 1);
-	else if (ft_strncmp(line, "EA", 2) == 0 && !map->ea)
+	else if (ft_strncmp(line, "EA ", 3) == 0 && !map->ea)
 		map->ea = ft_substr(line, i, j - 1);
 	else
 		return (printf("Error\nDuplicate NO,SE,WE or EA\n"), 1);
