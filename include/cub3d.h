@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 22:05:25 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 03:04:49 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct s_textures
 	t_img	*wall_we;
 	t_img	*wall_ea;
 	t_img	*background;
+	t_img	*minimap;
 } t_textures;
 
 typedef struct s_game
@@ -149,6 +150,12 @@ typedef struct s_map
 
 /* cb_check_file.c */
 int	ft_check_extension(char *str);
+
+/* cb_render_texture.c */
+int	ft_get_pixel(int x, int y, t_img *img);
+long	ft_get_colors(t_game *game);
+long	ft_get_we_ea_color(t_game *game);
+long	ft_get_no_so_color(t_game *game);
 
 /* cb_check_lines.c */
 bool	ft_check_side(char **map, int j);
