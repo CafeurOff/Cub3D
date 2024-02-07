@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:33:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 22:34:15 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/08 00:45:52 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		return (printf("Error\n Too few arguments"), 1);
 	check = ft_check_extension(av[1]);
 	if (check == 0)
-		return (printf("Error\n"), 1);
+		return (printf("Error\nFile is not .cub\n"), 1);
 	while (1)
 	{
 		map = ft_init_struct(av[1]);

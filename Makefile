@@ -3,7 +3,7 @@
 # Compile informations
 NAME	=	cub3D
 FLAGS	=	-Wall -Wextra -Werror -g -Ofast
-MLXFLAGS = 	-lXext -lX11 
+MLXFLAGS = 	-lXext -lX11
 
 #All sources files to compile
 SRC = src/

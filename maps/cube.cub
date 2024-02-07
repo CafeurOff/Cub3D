@@ -1,8 +1,8 @@
 
 EA ./textures/ea.xpm
-NO ./textures/we.xpm
+NO ./textures/no.xpm
 SO ./textures/window.xpm
-WE ./textures/ea.xpm
+WE ./textures/bonus.xpm
 
 C 4,255,233
 F 87,149,24
