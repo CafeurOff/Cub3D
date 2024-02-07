@@ -6,23 +6,27 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:32:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 21:42:23 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:04:41 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-int	ft_get_texture(t_map *map, char *line)
+/*	ft_get_texture(t_map *map, char *line, int k)
+**		- Get the texture path
+**		- Return true if the texture is valid
+*/
+
+int	ft_get_texture(t_map *map, char *line, int k)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (line[i])
-		if (line[i++] == '\t')
-			return(printf("Error\nTab is not allowed..\n"), 1);
-	i = 0;
+	while (line[k])
+		if (line[k++] == '\t')
+			return (printf("Error\nTab is not allowed..\n"), 1);
 	while (line[i] != ' ')
 		i++;
 	while (line[i] == ' ')
@@ -42,7 +46,10 @@ int	ft_get_texture(t_map *map, char *line)
 	return (0);
 }
 
-// Check if textures is xpm
+/*	ft_check_xpm(t_map *map)
+**		- Check if the texture is a xpm file
+**		- Return true if the texture is valid
+*/
 
 int	ft_check_xpm(t_map *map)
 {

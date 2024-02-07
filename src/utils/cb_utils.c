@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:20:51 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:00:23 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 22:56:45 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(sub_str, s + start, len + 1);
 	return (sub_str);
 }
-
-

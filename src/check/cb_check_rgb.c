@@ -6,11 +6,17 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:35:35 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:57:28 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:03:44 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_check_rgb(t_map *map, char *line)
+**		- Check if the RGB is valid
+**		- Split the RGB and check if the values are valid
+**		- Return true if the RGB is valid
+*/
 
 int	ft_check_rgb(t_map *map, char *line)
 {
@@ -27,7 +33,8 @@ int	ft_check_rgb(t_map *map, char *line)
 	if (!rgb)
 		return (free(trim), 1);
 	if (ft_len_tab(rgb) != 3)
-		return (free_tab(rgb), free(trim), printf("Error\nWrong RGB format\n"), 1);
+		return (free_tab(rgb), free(trim),
+			printf("Error\nWrong RGB format\n"), 1);
 	i = -1;
 	while (rgb[++i])
 	{
@@ -40,6 +47,11 @@ int	ft_check_rgb(t_map *map, char *line)
 	return (free_tab(rgb), free(trim), 0);
 }
 
+/*	ft_check_rgb_range(char **rgb, char *line, int i, int j)
+**		- Check if the RGB values are valid
+**		- Return true if the RGB is valid
+*/
+
 int	ft_check_rgb_range(char **rgb, char *line, int i, int j)
 {
 	while (rgb[i][++j])
@@ -48,6 +60,11 @@ int	ft_check_rgb_range(char **rgb, char *line, int i, int j)
 				printf("Error\nRGB is not valid\n"), 1);
 	return (0);
 }
+
+/*	ft_get_rgb(t_map *map, char *id, char **rgb)
+**		- Get the RGB values and check if they are valid
+**		- Return true if the RGB is valid
+*/
 
 int	ft_get_rgb(t_map *map, char *id, char **rgb)
 {
@@ -76,6 +93,12 @@ int	ft_get_rgb(t_map *map, char *id, char **rgb)
 	}
 	return (0);
 }
+
+/*	ft_check_floor(t_map *map)
+**		- Check if rgb of floor and ceiling are valid
+**		- Return true if the rgb is valid
+*/
+
 int	ft_check_floor(t_map *map)
 {
 	int	i;

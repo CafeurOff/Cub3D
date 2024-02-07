@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:50:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:57:23 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:00:32 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_check_side(char **map, int j)
+**		- Check if the side of the map is a wall
+**		- Return 1 if the side is a wall
+*/
 
 bool	ft_check_side(char **map, int j)
 {
@@ -26,6 +31,11 @@ bool	ft_check_side(char **map, int j)
 	}
 	return (true);
 }
+
+/*	ft_check_middle(char **map)
+**		- Check if the middle of the map is a wall
+**		- Return 1 if the middle is a wall
+*/
 
 bool	ft_check_middle(char **map)
 {
@@ -47,6 +57,11 @@ bool	ft_check_middle(char **map)
 	}
 	return (true);
 }
+
+/*	ft_check_border(char **map)
+**		- Check if the border of the map is a wall
+**		- Return 1 if the border is a wall
+*/
 
 bool	ft_check_border(char **map)
 {
@@ -76,6 +91,12 @@ bool	ft_check_border(char **map)
 	}
 	return (true);
 }
+
+/*	ft_check_current(char **map)
+**		- Check if the current line is a wall
+**		- Return 1 if the current line is a wall
+*/
+
 bool	ft_check_current(char **map)
 {
 	int	i;
@@ -100,6 +121,11 @@ bool	ft_check_current(char **map)
 	}
 	return (true);
 }
+
+/*	ft_check_next(char **map)
+**		- Check if the next line is a wall
+**		- Return 1 if the next line is a wall
+*/
 
 bool	ft_check_next(char **map)
 {

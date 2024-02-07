@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:22:32 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 21:58:20 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:18:09 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_init_struct(char *path)
+**		- Initialize the struct
+**		- Return the struct
+*/
 
 t_map	*ft_init_struct(char *path)
 {
@@ -32,6 +37,10 @@ t_map	*ft_init_struct(char *path)
 	return (map);
 }
 
+/*	ft_malloc_game(t_map *map)
+**		- Malloc the game struct
+*/
+
 void	ft_malloc_game(t_map *map)
 {
 	map->game = malloc(sizeof(t_game));
@@ -42,14 +51,10 @@ void	ft_malloc_game(t_map *map)
 	ft_malloc_img(map->game->texture);
 }
 
-void	ft_malloc_img(t_textures *tex)
-{
-	tex->background = malloc(sizeof(t_img));
-	tex->wall_ea = malloc(sizeof(t_img));
-	tex->wall_no = malloc(sizeof(t_img));
-	tex->wall_we = malloc(sizeof(t_img));
-	tex->wall_so = malloc(sizeof(t_img));
-}
+/*	ft_init_cast(t_map *map)
+**		- Initialize the cast struct
+**		- Return the cast struct
+*/
 
 t_cast	*ft_init_cast(t_map *map)
 {
@@ -80,6 +85,11 @@ t_cast	*ft_init_cast(t_map *map)
 	return (cast);
 }
 
+/*	ft_line_init(void)
+**		- Initialize the draw line struct
+**		- Return the draw line struct
+*/
+
 t_draw_line	*ft_line_init(void)
 {
 	t_draw_line	*dl;
@@ -97,6 +107,11 @@ t_draw_line	*ft_line_init(void)
 	dl->end_y = 0;
 	return (dl);
 }
+
+/*	ft_raycast_init(void)
+**		- Initialize the raycast struct
+**		- Return the raycast struct
+*/
 
 t_ray	*ft_raycast_init(void)
 {

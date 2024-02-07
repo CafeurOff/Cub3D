@@ -6,11 +6,15 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:13:25 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:56:02 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:10:57 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_set_honrizontal_val(t_game *game)
+**		- Set the horizontal value
+*/
 
 void	ft_set_honrizontal_val(t_game *game)
 {
@@ -20,6 +24,11 @@ void	ft_set_honrizontal_val(t_game *game)
 	game->ray->depoffield = 0;
 	game->ray->a_tan = -1 / tan(game->ray->ray_a);
 }
+
+/*	ft_line_honrizontal(t_game *game)
+**		- Set the horizontal line
+**		- Launch the horizontal ray
+*/
 
 void	ft_line_honrizontal(t_game *game)
 {
@@ -49,6 +58,11 @@ void	ft_line_honrizontal(t_game *game)
 	ft_honrizontal_wall(game);
 }
 
+/*	ft_honrizontal_wall(t_game *game)
+**		- Get the horizontal wall
+**		- While the ray is not at the end of the field
+*/
+
 void	ft_honrizontal_wall(t_game *game)
 {
 	while (game->ray->depoffield < game->height)
@@ -64,7 +78,8 @@ void	ft_honrizontal_wall(t_game *game)
 		{
 			game->ray->hor_x = game->ray->ray_x;
 			game->ray->hor_y = game->ray->ray_y;
-			game->ray->dist_h = ft_get_distance(game, game->ray->hor_x, game->ray->hor_y);
+			game->ray->dist_h = ft_get_distance(game, game->ray->hor_x,
+					game->ray->hor_y);
 			game->ray->depoffield = game->height;
 		}
 		else

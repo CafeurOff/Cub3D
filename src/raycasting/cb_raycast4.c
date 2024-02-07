@@ -6,15 +6,21 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:22:00 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/07 03:05:45 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:12:55 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
+/*	ft_set_cos(t_game *game)
+**		- Set the cos value
+**		- Set the line hight
+**		- Set the texture step
+*/
+
 void	ft_set_cos(t_game *game)
 {
-	game->cast->ca = game->cast->pa - game->ray->ray_a - 0; // here
+	game->cast->ca = game->cast->pa - game->ray->ray_a;
 	if (game->cast->ca < 0)
 		game->cast->ca += 2 * M_PI;
 	if (game->cast->ca > 2 * M_PI)
@@ -31,6 +37,10 @@ void	ft_set_cos(t_game *game)
 	game->cast->line_offset = (game->dis_h / 2) - game->cast->line_hight / 2;
 	game->ray->final_d *= cos(game->cast->ca);
 }
+
+/*	ft_set_render(t_game *game)
+**		- Set the render value
+*/
 
 void	ft_set_render(t_game *game)
 {
@@ -49,6 +59,11 @@ void	ft_set_render(t_game *game)
 			game->dl->tx = 63 - game->dl->tx;
 	}
 }
+
+/*	ft_draw_walls(t_game *game)
+**		- Draw the walls
+**		- Get the color pixel from the texture
+*/
 
 void	ft_draw_walls(t_game *game)
 {

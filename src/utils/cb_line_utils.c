@@ -6,11 +6,15 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:36:43 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:00:14 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:22:30 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_trim_space(char *line)
+**		- Trim the space in the line
+*/
 
 char	*ft_trim_space(char *line)
 {
@@ -37,6 +41,10 @@ char	*ft_trim_space(char *line)
 	return (trim);
 }
 
+/*	ft_init_null(t_map *map)
+**		- Initialize the struct to NULL
+*/
+
 void	ft_init_null(t_map *map)
 {
 	int	i;
@@ -51,4 +59,17 @@ void	ft_init_null(t_map *map)
 		map->floor[i] = -1;
 		map->ceiling[i] = -1;
 	}
+}
+
+/*	ft_malloc_img(t_textures *tex)
+**		- Malloc the img struct
+*/
+
+void	ft_malloc_img(t_textures *tex)
+{
+	tex->background = malloc(sizeof(t_img));
+	tex->wall_ea = malloc(sizeof(t_img));
+	tex->wall_no = malloc(sizeof(t_img));
+	tex->wall_we = malloc(sizeof(t_img));
+	tex->wall_so = malloc(sizeof(t_img));
 }

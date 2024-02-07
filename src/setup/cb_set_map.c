@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:44:45 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:59:05 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:19:01 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_setmap(int fd)
+**		- Set the map
+**		- Return the map
+*/
 
 char	**ft_setmap(int fd)
 {
@@ -20,11 +25,16 @@ char	**ft_setmap(int fd)
 	if (map == NULL)
 		return (NULL);
 	if (ft_len_tab(map) == 0)
-		return (free_tab(map), printf("i\nMap Not found\n"), NULL);
+		return (free_tab(map), printf("Error\nMap Not found\n"), NULL);
 	if (ft_check_pos(map) == false)
 		return (free_tab(map), NULL);
 	return (map);
 }
+
+/*	ft_set(int fd)
+**		- Set the map
+**		- Return the map
+*/
 
 char	**ft_set(int fd)
 {
@@ -47,7 +57,7 @@ char	**ft_set(int fd)
 		line = get_next_line(fd);
 	}
 	if (i == 1)
-		return (free(buffer), printf("New line on map\n"), NULL);
+		return (free(buffer), printf("Error\nNew line on map\n"), NULL);
 	map = ft_split(buffer, '\n');
 	if (map == NULL)
 		return (free(buffer), NULL);

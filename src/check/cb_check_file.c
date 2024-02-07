@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   cb_check_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfroidev <sfroidev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:04 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/02 15:19:25 by sfroidev         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:20:58 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_check_extension(char *str)
+**		- Check if the file has the right extension
+**		- Return 1 if the file has the right extension
+*/
 
 int	ft_check_extension(char *str)
 {

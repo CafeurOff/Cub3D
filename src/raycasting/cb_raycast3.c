@@ -6,11 +6,15 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:16:02 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/29 23:56:05 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:11:59 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_set_vertical_val(t_game *game)
+**		- Set the vertical value
+*/
 
 void	ft_set_vertical_val(t_game *game)
 {
@@ -20,6 +24,11 @@ void	ft_set_vertical_val(t_game *game)
 	game->ray->depoffield = 0;
 	game->ray->n_tan = -tan(game->ray->ray_a);
 }
+
+/*	ft_line_vertical(t_game *game)
+**		- Set the vertical line
+**		- Launch the vertical ray
+*/
 
 void	ft_line_vertical(t_game *game)
 {
@@ -49,6 +58,11 @@ void	ft_line_vertical(t_game *game)
 	ft_vertical_wall(game);
 }
 
+/*	ft_vertical_wall(t_game *game)
+**		- Set the vertical wall
+**		- Launch the vertical ray to find the wall
+*/
+
 void	ft_vertical_wall(t_game *game)
 {
 	while (game->ray->depoffield < game->width)
@@ -64,7 +78,8 @@ void	ft_vertical_wall(t_game *game)
 		{
 			game->ray->ver_x = game->ray->ray_x;
 			game->ray->ver_y = game->ray->ray_y;
-			game->ray->dist_v = ft_get_distance(game, game->ray->ver_x, game->ray->ver_y);
+			game->ray->dist_v = ft_get_distance(game, game->ray->ver_x,
+					game->ray->ver_y);
 			game->ray->depoffield = game->width;
 		}
 		else
@@ -75,6 +90,11 @@ void	ft_vertical_wall(t_game *game)
 		}
 	}
 }
+
+/*	ft_check_distance(t_game *game)
+**		- Check the distance between the player and the wall
+**		- Set the ray value
+*/
 
 void	ft_check_distance(t_game *game)
 {
@@ -93,5 +113,3 @@ void	ft_check_distance(t_game *game)
 		game->ray->final_d = game->ray->dist_h;
 	}
 }
-
-

@@ -6,16 +6,22 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:37:23 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/07 03:03:32 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:17:10 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void	ft_get_draw_texture(t_game *game, t_map *map)
-{
+/*	ft_get_draw_texture(t_game *game, t_map *map)
+**		- Paint the background
+**		- Set the texture
+*/
 
-	game->texture->background->mlx_img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
-	game->texture->background->addr = mlx_get_data_addr(game->texture->background->mlx_img, &game->texture->background->bpp, &game->texture->background->line, &game->texture->background->endian);
-	ft_set_pixel(game->texture->background, WIDTH, HEIGHT, map);
+void	ft_get_draw_texture(t_game *g, t_map *m)
+{
+	g->texture->background->mlx_img = mlx_new_image(g->mlx, WIDTH, HEIGHT);
+	g->texture->background->addr = mlx_get_data_addr(
+			g->texture->background->mlx_img, &g->texture->background->bpp,
+			&g->texture->background->line, &g->texture->background->endian);
+	ft_set_pixel(g->texture->background, WIDTH, HEIGHT, m);
 }

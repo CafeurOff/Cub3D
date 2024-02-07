@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:37:38 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/07 03:04:49 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:51:54 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 # define HEIGHT 900
 # define WIDTH 1440
 
+/*	Structure for the casting
+** All the values for the raycasting
+*/
+
 typedef struct s_cast
 {
 	double		pd_x;
@@ -47,6 +51,10 @@ typedef struct s_cast
 	int			map_p;
 	char		**map;
 }				t_cast;
+
+/*	Structure for the raycasting
+** All the values for the raycasting
+*/
 
 typedef struct s_ray
 {
@@ -74,6 +82,10 @@ typedef struct s_ray
 	double	ty_off;
 }	t_ray;
 
+/*	Structure for the draw line
+** All the values for the draw line
+*/
+
 typedef struct draw_line
 {
 	double		tx;
@@ -95,6 +107,11 @@ typedef struct draw_line
 	int			x_off;
 }	t_draw_line;
 
+/*	Structure for the image
+** All the values for the image
+** Get all informations about the image
+*/
+
 typedef struct s_img
 {
 	void	*mlx_img;
@@ -106,6 +123,11 @@ typedef struct s_img
 	int		y;
 }	t_img;
 
+/*	Structure for the textures
+** All the values for the textures
+** Get all informations about the textures
+*/
+
 typedef struct s_textures
 {
 	t_img	*wall_no;
@@ -114,7 +136,11 @@ typedef struct s_textures
 	t_img	*wall_ea;
 	t_img	*background;
 	t_img	*minimap;
-} t_textures;
+}	t_textures;
+
+/*	Structure for the game
+** All the values for the game
+*/
 
 typedef struct s_game
 {
@@ -132,6 +158,9 @@ typedef struct s_game
 	t_textures		*texture;
 }	t_game;
 
+/*	Structure for the map
+** All the values for the map
+*/
 
 typedef struct s_map
 {
@@ -148,14 +177,12 @@ typedef struct s_map
 	t_game	*game;
 }				t_map;
 
-/* cb_check_file.c */
-int	ft_check_extension(char *str);
+/* All function
+**	Is sorted by folder
+*/
 
-/* cb_render_texture.c */
-int	ft_get_pixel(int x, int y, t_img *img);
-long	ft_get_colors(t_game *game);
-long	ft_get_we_ea_color(t_game *game);
-long	ft_get_no_so_color(t_game *game);
+/* cb_check_file.c */
+int		ft_check_extension(char *str);
 
 /* cb_check_lines.c */
 bool	ft_check_side(char **map, int j);
@@ -172,62 +199,20 @@ char	ft_player_pos(char **map);
 int		ft_check_points(char c, char **map);
 
 /* cb_check_rgb.c */
-int	ft_check_rgb(t_map *map, char *line);
-int	ft_check_rgb_range(char **rgb, char *line, int i, int j);
-int	ft_get_rgb(t_map *map, char *id, char **rgb);
-int	ft_check_floor(t_map *map);
+int		ft_check_rgb(t_map *map, char *line);
+int		ft_check_rgb_range(char **rgb, char *line, int i, int j);
+int		ft_get_rgb(t_map *map, char *id, char **rgb);
+int		ft_check_floor(t_map *map);
 
 /* cb_check_textures.c */
-int	ft_get_texture(t_map *map, char *line);
-int	ft_check_xpm(t_map *map);
-
-/* cb_errors_management.c */
-void	free_tab(char **tab);
-void	ft_endgame(t_map *map);
-void	ft_free_struct(t_map *map);
-void	ft_destroy_img(t_game *game, int i);
-void	ft_free_texture(t_map *map);
-int		ft_exit(t_map *map);
-
-/* cb_game_draw.c */
-int		ft_draw_map(t_game *game, t_map *map);
-void	ft_get_addr(t_textures *tex);
-void	ft_draw_player(t_game *game, char **map);
-
-/* cb_game_init */
-void	ft_game(t_map *map);
-int		ft_get_longuest(char **map);
-void	ft_beggin(t_game *game, t_map *map);
-
-/* cb_get_texture.c */
-void	ft_get_draw_texture(t_game *game, t_map *map);
-
-/* cb_texture_utils.c */
-long	ft_rgb_hex(int r, int g, int b);
-void	ft_set_pixel(t_img *img, int max_x, int max_y, t_map *map);
-void	mlx_put_pixel(t_img *img, int x, int y, long color);
-
-/* cb_init.c */
-t_map	*ft_init_struct(char *path);
-void	ft_malloc_game(t_map *map);
-void	ft_malloc_img(t_textures *tex);
-t_cast	*ft_init_cast(t_map *map);
-t_draw_line	*ft_line_init(void);
-t_ray	*ft_raycast_init(void);
-
-/* cb_line_utils.c */
-char	*ft_trim_space(char *line);
-void	ft_init_null(t_map *map);
+int		ft_get_texture(t_map *map, char *line, int k);
+int		ft_check_xpm(t_map *map);
 
 /* cb_map_check.c */
-int	ft_get_map(t_map *map);
-int	ft_check_map(t_map *map, char *line);
+int		ft_get_map(t_map *map);
+int		ft_check_map(t_map *map, char *line);
 bool	ft_check_cor(char *line, int check);
 char	*ft_check_nl(char *line, int map_fd);
-
-/* cb_move_utils.c */
-void	ft_offset(t_game *game);
-bool	ft_check_collision(char c);
 
 /* cb_raycast.c */
 void	ft_raycaster(t_game *game);
@@ -252,15 +237,73 @@ void	ft_set_cos(t_game *game);
 void	ft_set_render(t_game *game);
 void	ft_draw_walls(t_game *game);
 
+/* cb_render_texture.c */
+int		ft_get_pixel(int x, int y, t_img *img);
+long	ft_get_colors(t_game *game);
+long	ft_get_we_ea_color(t_game *game);
+long	ft_get_no_so_color(t_game *game);
+
+/* cb_game_draw.c */
+int		ft_draw_map(t_game *game, t_map *map);
+void	ft_get_addr(t_textures *tex);
+void	ft_draw_player(t_game *game, char **map);
+
+/* cb_game_init */
+void	ft_game(t_map *map);
+int		ft_get_longuest(char **map);
+void	ft_beggin(t_game *game, t_map *map);
+
+/* cb_get_texture.c */
+void	ft_get_draw_texture(t_game *game, t_map *map);
+
+/* cb_init.c */
+t_map	*ft_init_struct(char *path);
+t_cast	*ft_init_cast(t_map *map);
+t_ray	*ft_raycast_init(void);
+void	ft_malloc_game(t_map *map);
+t_draw_line	*ft_line_init(void);
+
 /* cb_set_map.c */
 char	**ft_setmap(int fd);
 char	**ft_set(int fd);
+
+/* ft_hooks */
+int		ft_hooks(t_map *map);
+int		ft_controls(int key, t_map *map);
+void	ft_camera_move(t_game *game, int key);
+void	ft_move_front_back(t_game *game, int key);
+void	ft_move_vertical(t_game *game, int key);
+
+/* cb_errors_management.c */
+void	free_tab(char **tab);
+void	ft_endgame(t_map *map);
+void	ft_free_struct(t_map *map);
+void	ft_destroy_img(t_game *game, int i);
+void	ft_free_wall(t_map *map);
+
+/* ft_exit.c */
+void	ft_free_texture(t_map *map);
+int		ft_exit(t_map *map);
+
+/* cb_line_utils.c */
+char	*ft_trim_space(char *line);
+void	ft_init_null(t_map *map);
+void	ft_malloc_img(t_textures *tex);
+
+/* cb_move_utils.c */
+void	ft_offset(t_game *game);
+bool	ft_check_collision(char c);
+
+/* cb_texture_utils.c */
+long	ft_rgb_hex(int r, int g, int b);
+void	ft_set_pixel(t_img *img, int max_x, int max_y, t_map *map);
+void	mlx_put_pixel(t_img *img, int x, int y, long color);
 
 /* cb_utils.c */
 void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_strdup(const char *str1);
 size_t	ft_strlen(const char *str);
-int	ft_strncmp(const char *str1, const char *str2, size_t n);
+int		ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /* cb_utils2.c */
@@ -280,16 +323,7 @@ char	*ft_strjoin_free(const char *s1, const char *s2);
 bool	ft_is_letters(char c);
 void	ft_bzero(void *dst, size_t n);
 
-/* ft_hooks */
-int		ft_hooks(t_map *map);
-int		ft_controls(int key, t_map *map);
-void	ft_camera_move(t_game *game, int key);
-void	ft_move_front_back(t_game *game, int key);
-void	ft_move_vertical(t_game *game, int key);
-
 /* ft_split.c */
 char	**ft_split(char const *s, char c);
-
-
 
 #endif

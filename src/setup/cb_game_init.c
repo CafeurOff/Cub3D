@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:34:26 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/07 03:05:17 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:16:40 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_game(t_map *map)
+**		- Initialize the game
+**		- Set the display size
+*/
 
 void	ft_game(t_map *map)
 {
@@ -20,6 +25,11 @@ void	ft_game(t_map *map)
 	map->game->height = ft_len_tab(map->map);
 	ft_beggin(map->game, map);
 }
+
+/*	ft_get_longuest(char **map)
+**		- Get the longuest line of the map
+**		- Return the longuest line
+*/
 
 int	ft_get_longuest(char **map)
 {
@@ -36,6 +46,14 @@ int	ft_get_longuest(char **map)
 	}
 	return (check);
 }
+
+/*	ft_beggin(t_game *game, t_map *map)
+**		- Initialize the game
+**		- Set the mlx and the window
+**		- Set the texture
+**		- Draw the map
+**		- Set the hooks
+*/
 
 void	ft_beggin(t_game *game, t_map *map)
 {

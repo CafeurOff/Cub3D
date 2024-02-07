@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:48:52 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:23:10 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:02:28 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_check_lines(char **map)
+**		- Check all the side of the map
+**		- Return true if the map is valid
+*/
 
 bool	ft_check_lines(char **map)
 {
@@ -28,16 +33,26 @@ bool	ft_check_lines(char **map)
 	return (true);
 }
 
+/*	ft_check_pos(char **map)
+**		- Check if the components of the map are valid
+**		- Return true if the map is valid
+*/
+
 bool	ft_check_pos(char **map)
 {
 	if (ft_check_lines(map) == false)
 		return (false);
 	if (!ft_check_letters(map))
-		return (printf("Invalid map component found\n"), false);
+		return (printf("Invalid map component/letters found\n"), false);
 	if (ft_player_pos(map) == 'F')
 		return (printf("Invalid player position\n"), false);
 	return (true);
 }
+
+/*	ft_check_letters(char **map)
+**		- Check if the map contains only valid letters
+**		- Return true if the map is valid
+*/
 
 bool	ft_check_letters(char **map)
 {
@@ -59,6 +74,11 @@ bool	ft_check_letters(char **map)
 	return (true);
 }
 
+/*	ft_player_pos(char **map)
+**		- Check if the player position is valid
+**		- Return the player position
+*/
+
 char	ft_player_pos(char **map)
 {
 	if (ft_check_points('N', map) == 1 && ft_check_points('S', map) == 0
@@ -75,6 +95,11 @@ char	ft_player_pos(char **map)
 		return ('W');
 	return ('F');
 }
+
+/*	ft_check_points(char c, char **map)
+**		- Check if the map contains only one player position
+**		- Return the number of player position
+*/
 
 int	ft_check_points(char c, char **map)
 {

@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cb_errors_management.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lduthill <lduthill@42perpignan.fr>         +#+  +:+       +#+        */
+/*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:19:49 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/06 14:01:16 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:21:46 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	free_tab(char **tab)
+**		- Free the tab
+*/
 
 void	free_tab(char **tab)
 {
@@ -21,6 +25,12 @@ void	free_tab(char **tab)
 		free(tab[i++]);
 	free(tab);
 }
+
+/*	ft_endgame(t_map *map)
+**		- Free the map
+**		- Close the file
+**		- Free the struct
+*/
 
 void	ft_endgame(t_map *map)
 {
@@ -44,6 +54,10 @@ void	ft_endgame(t_map *map)
 	ft_free_struct(map);
 }
 
+/*	ft_free_struct(t_map *map)
+**		- Free the struct
+*/
+
 void	ft_free_struct(t_map *map)
 {
 	if (map->error == 0)
@@ -60,6 +74,10 @@ void	ft_free_struct(t_map *map)
 	free(map);
 }
 
+/*	ft_destroy_img(t_game *game, int i)
+**		- Destroy the image
+*/
+
 void	ft_destroy_img(t_game *game, int i)
 {
 	if (i >= 1)
@@ -72,20 +90,10 @@ void	ft_destroy_img(t_game *game, int i)
 		mlx_destroy_image(game->mlx, game->texture->wall_ea->mlx_img);
 }
 
-void	ft_free_texture(t_map *map)
-{
-	mlx_destroy_window(map->game->mlx, map->game->win);
-	mlx_destroy_image(map->game->mlx, map->game->texture->background->mlx_img);
-	mlx_destroy_display(map->game->mlx);
-	free(map->game->texture->wall_no);
-	free(map->game->texture->wall_so);
-	free(map->game->texture->wall_we);
-	free(map->game->texture->wall_ea);
-	free(map->game->texture->background);
-	free(map->game->mlx);
-	ft_endgame(map);
-	exit(0);
-}
+/*	ft_exit(t_map *map)
+**		- Exit the game
+**		- Free the struct
+*/
 
 int	ft_exit(t_map *map)
 {
@@ -111,13 +119,6 @@ int	ft_exit(t_map *map)
 		free(map->game->cast);
 		free(map->game->dl);
 	}
-	free(map->game->texture->wall_no);
-	free(map->game->texture->wall_so);
-	free(map->game->texture->wall_we);
-	free(map->game->texture->wall_ea);
-	free(map->game->texture->background);
-	free(map->game->texture);
-	free(map->game);
-	free(map);
+	ft_free_wall(map);
 	exit(0);
 }

@@ -6,11 +6,18 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:10:03 by lduthill          #+#    #+#             */
-/*   Updated: 2024/02/07 03:03:48 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:09:20 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_raycaster(t_game *game)
+**		- Raycasting function
+**		- Set the ray angle
+**		- Set the ray distance
+**		- Set the ray value
+*/
 
 void	ft_raycaster(t_game *game)
 {
@@ -26,6 +33,10 @@ void	ft_raycaster(t_game *game)
 	}
 }
 
+/*	ft_set_value(t_game *game)
+**		- Set the ray angle value
+*/
+
 void	ft_set_value(t_game *game)
 {
 	if (game->ray->ray_a < 0)
@@ -33,6 +44,11 @@ void	ft_set_value(t_game *game)
 	if (game->ray->ray_a > 2 * M_PI)
 		game->ray->ray_a -= 2 * M_PI;
 }
+
+/*	ft_get_distance(t_game *g, double bx, double by)
+**		- Get the distance between the player and the wall
+**		- Return the distance
+*/
 
 double	ft_get_distance(t_game *g, double bx, double by)
 {
@@ -43,6 +59,11 @@ double	ft_get_distance(t_game *g, double bx, double by)
 	ay = g->pl_y;
 	return (sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)));
 }
+
+/*	ft_set_ray_val(t_game *game)
+**		- Set the ray value
+**		- And draw the walls
+*/
 
 void	ft_set_ray_val(t_game *game)
 {

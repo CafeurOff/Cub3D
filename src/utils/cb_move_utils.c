@@ -6,11 +6,16 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 23:01:33 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:00:17 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:23:12 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
+
+/*	ft_check_collision(char c)
+**		- Check if the player can move
+**		- Return 1 if the player can move
+*/
 
 bool	ft_check_collision(char c)
 {
@@ -18,6 +23,11 @@ bool	ft_check_collision(char c)
 		return (false);
 	return (true);
 }
+
+/*	ft_offset(t_game *game)
+**		- Set the offset for the player
+**		- Offset is the distance raycasted
+*/
 
 void	ft_offset(t_game *game)
 {

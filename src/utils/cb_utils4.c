@@ -6,7 +6,7 @@
 /*   By: lduthill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:47:10 by lduthill          #+#    #+#             */
-/*   Updated: 2024/01/30 00:00:32 by lduthill         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:01:58 by lduthill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strjoin_free(const char *s1, const char *s2)
 
 bool	ft_is_letters(char c)
 {
-	if (ft_strchr("01NSWED23LZ4", c))
+	if (ft_strchr("01NSWE", c))
 		return (true);
 	return (false);
 }
