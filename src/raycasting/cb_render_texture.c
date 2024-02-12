@@ -23,6 +23,8 @@ int	ft_get_pixel(int x, int y, t_img *img)
 	int		color;
 	char	*dst;
 
+	if (x <= 0 || y <= 0)
+		return (0);
 	dst = img->addr + (y * img->line + x * (img->bpp / 8));
 	color = *(unsigned int *)dst;
 	return (color);
